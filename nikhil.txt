@@ -1,0 +1,82 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250519193307
+Username: LAPTOP-VJH944F0\nikhi
+RunAs User: LAPTOP-VJH944F0\nikhi
+Configuration Name: 
+Machine: LAPTOP-VJH944F0 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 25576
+PSVersion: 5.1.26100.4061
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4061
+BuildVersion: 10.0.26100.4061
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is nikhil.txt
+PS C:\Users\nikhi> New-Item -Path C:\Users\nikhi\JavaScript -Name 'QA-Training' -ItemType Directory
+
+
+    Directory: C:\Users\nikhi\JavaScript
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        19-05-2025     19:35                QA-Training
+
+
+PS C:\Users\nikhi> Set-Location C:\Users\nikhi\JavaScript\QA-Training
+PS C:\Users\nikhi\JavaScript\QA-Training> git --version
+git version 2.49.0.windows.1
+PS C:\Users\nikhi\JavaScript\QA-Training> git clone https://github.com/sureshnanjan/protech-js-plw-cy.git
+Cloning into 'protech-js-plw-cy'...
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (5/5), 13.79 KiB | 3.45 MiB/s, done.
+PS C:\Users\nikhi\JavaScript\QA-Training> Set-Location project-js-plw-cy
+Set-Location : Cannot find path 'C:\Users\nikhi\JavaScript\QA-Training\project-js-plw-cy' because it does not exist.
+At line:1 char:1
++ Set-Location project-js-plw-cy
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nikhi\...oject-js-plw-cy:String) [Set-Location], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+Set-Location : Cannot find path 'C:\Users\nikhi\JavaScript\QA-Training\project-js-plw-cy' because it does not exist.
+At line:1 char:1
++ Set-Location project-js-plw-cy
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nikhi\...oject-js-plw-cy:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nikhi\JavaScript\QA-Training> Set-Location protect-js-plw-cy
+Set-Location : Cannot find path 'C:\Users\nikhi\JavaScript\QA-Training\protect-js-plw-cy' because it does not exist.
+At line:1 char:1
++ Set-Location protect-js-plw-cy
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nikhi\...otect-js-plw-cy:String) [Set-Location], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+Set-Location : Cannot find path 'C:\Users\nikhi\JavaScript\QA-Training\protect-js-plw-cy' because it does not exist.
+At line:1 char:1
++ Set-Location protect-js-plw-cy
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\nikhi\...otect-js-plw-cy:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\nikhi\JavaScript\QA-Training> Set-Location protech-js-plw-cy
+PS C:\Users\nikhi\JavaScript\QA-Training\protech-js-plw-cy> git status
+
+PS C:\Users\nikhi\JavaScript\QA-Training\protech-js-plw-cy> git checkout -b nikhil-branch
+
+PS C:\Users\nikhi\JavaScript\QA-Training\protech-js-plw-cy> git status
+
+PS C:\Users\nikhi\JavaScript\QA-Training\protech-js-plw-cy> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20250519194137
+**********************
