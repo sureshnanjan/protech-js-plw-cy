@@ -1,1 +1,80 @@
 Another line added to the file.
+Great! Here's the Mac-specific version of your GitHub workflow training guide. It uses Terminal instead of PowerShell and follows macOS conventions. This version is perfect for anyone working on a Mac during your training session.
+🍎 GitHub Workflow Training – Mac Instructions
+✅ 1. Open Terminal
+Use Spotlight (Cmd + Space) and search for "Terminal"
+Open the Terminal app
+📝 2. Start a Terminal Session Log
+This will log your session to a text file.
+Replace <yourname> with your actual name:
+script -q ~/Desktop/<yourname>.txt
+🔹 This starts recording everything in your Terminal. The log will be saved on your Desktop.
+
+🔹 You’ll stop the log at the end using exit.
+📁 3. Create a Working Folder
+Pick a path where you want to store your project files. For example, use the Desktop:
+mkdir -p ~/Desktop/QA-Training
+cd ~/Desktop/QA-Training
+🔧 4. Check Git Installation
+Check if Git is installed:
+git --version
+If you see the version (e.g. git version 2.44.0), move to step 5.
+If Git is not installed, do the following:
+Run:
+Follow the prompt to install the command line tools, which includes Git.
+⬇️ 5. Clone the Playwright Training Repository
+git clone https://github.com/sureshnanjan/protech-js-plw-cy.git
+cd protech-js-plw-cy
+git status
+Expected output:
+On branch master
+Your branch is up to date with 'origin/master'.
+🌿 6. Create Your Own Feature Branch
+Replace <yourname> with your real name or GitHub handle:
+git checkout -b <yourname>-branch
+git status
+Expected:
+On branch <yourname>-branch
+nothing to commit, working tree clean
+📥 7. Make Initial Changes & Commit
+Make some edits (e.g., create a sample file):
+touch firstfile.txt
+Stage and commit:
+git add .
+git commit -m "Adding first file to branch"
+git status
+Expected:
+On branch <yourname>-branch
+nothing to commit, working tree clean
+🛑 8. Stop Logging the Terminal Session
+To end the session log:
+exit
+🔹 This will stop the script command and save the log file as <yourname>.txt on your Desktop.
+🚀 9. Push to GitHub (After You Are Added)
+Once you’re added as a collaborator to the repo:
+git push origin <yourname>-branch
+📩 10. Share Your GitHub Info
+Send your GitHub username or email to the trainer so you can be added as a collaborator on the repo.
+ 
+ 
+you can use this Watcharapong Thongkom
+ 
+Then For Creating GIT Token 🔐 0. [NEW] Generate a GitHub Personal Access Token (PAT)
+GitHub no longer allows password authentication when pushing to a repository. You'll need a token instead:
+✅ Steps:
+Go to https://github.com/settings/tokens
+Click "Generate new token" > "Fine-grained token"
+Set the following:
+Name: Git CLI Token (or anything)
+Expiration: Choose 30 days or custom
+Resource owner: Your GitHub username (e.g., cherisha)
+Repository access: Choose the specific repo (protech-js-plw-cy) or "All repositories"
+Permissions:
+Under Repository permissions, set:
+Contents → Read and Write
+Optionally: Metadata → Read-only
+Click Generate token
+Copy and save the token somewhere secure — you won’t see it again!
+GitHub
+GitHub is where people build software. More than 150 million people use GitHub to discover, fork, and contribute to over 420 million projects.
+ 
