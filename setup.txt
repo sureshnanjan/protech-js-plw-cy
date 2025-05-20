@@ -1,0 +1,53 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250519211058
+Username: SURESHNANJAN\nanja
+RunAs User: SURESHNANJAN\nanja
+Configuration Name: 
+Machine: SURESHNANJAN (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell
+Process ID: 5936
+PSVersion: 5.1.26100.4061
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4061
+BuildVersion: 10.0.26100.4061
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is setup.txt
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> npm init -y
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> npm install express body-parser
+
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> npm install --save-dev nodemon jest
+
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> mkdir data
+
+
+    Directory: C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        19-05-2025     21:16                data
+
+
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> code .
+
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> npm run dev
+
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS C:\Trainings-2021\Vendors\ProtechSavvy\protech-js-plw-cy> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20250519221015
+**********************
