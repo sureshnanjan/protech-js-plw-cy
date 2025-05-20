@@ -1,0 +1,23 @@
+{
+  "name": "protech-js-plw-cy",
+  "version": "1.0.0",
+  "description": "Training Repository for JavaScript , Playwright and Cypress",
+  "main": "nodejs-todo-app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "protech-js-plw-cy": "file:"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10"
+  }
+}

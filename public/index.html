@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .input-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #todoInput {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        #addButton {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #addButton:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px 15px;
+            background-color: white;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: #888;
+            background-color: #f0f0f0;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .todo-text {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        .empty-message {
+            text-align: center;
+            color: #888;
+        }
+        .status-indicator {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .status-success {
+            background-color: #dff2bf;
+            color: #4F8A10;
+        }
+        .status-error {
+            background-color: #ffbaba;
+            color: #D8000C;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Node.js Todo List</h1>
+        
+        <!-- Input for adding new tasks -->
+        <div class="input-container">
+            <input type="text" id="todoInput" placeholder="Add a new task...">
+            <button id="addButton">Add</button>
+        </div>
+        
+        <!-- Status indicator -->
+        <div id="statusIndicator" class="status-indicator"></div>
+        
+        <!-- List containing the tasks -->
+        <ul id="todoList"></ul>
+        
+        <!-- Message shown when list is empty -->
+        <p id="emptyMessage" class="empty-message">Your to-do list is empty. Add a task to get started!</p>
+    </div>
+
+    <script>
+        // Wait for the DOM to fully load before executing JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- STEP 1: SELECT DOM ELEMENTS ---
+            const todoInput = document.getElementById('todoInput');
+            const addButton = document.getElementById('addButton');
+            const todoList = document.getElementById('todoList');
+            const emptyMessage = document.getElementById('emptyMessage');
+            const statusIndicator = document.getElementById('statusIndicator');
+            
+            // --- STEP 2: API FUNCTIONS ---
+            
+            // Show status message
+            function showStatus(message, isError = false) {
+                statusIndicator.textContent = message;
+                statusIndicator.className = 'status-indicator ' + 
+                    (isError ? 'status-error' : 'status-success');
+                statusIndicator.style.display = 'block';
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    statusIndicator.style.display = 'none';
+                }, 3000);
+            }
+            
+            // Fetch all todos from the API
+            async function fetchTodos() {
+                try {
+                    const response = await fetch('/api/todos');
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch todos');
+                    }
+                    const todos = await response.json();
+                    renderTodos(todos);
+                } catch (error) {
+                    console.error('Error:', error);
+                    showStatus('Failed to load todos', true);
+                }
+            }
+            
+            // Add a new todo via the API
+            async function addTodo() {
+                const text = todoInput.value.trim();
+                
+                if (!text) {
+                    return;
+                }
+                
+                try {
+                    const response = await fetch('/api/todos', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ text })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to add todo');
+                    }
+                    
+                    todoInput.value = '';
+                    showStatus('Todo added successfully');
+                    fetchTodos(); // Refresh the list
+                } catch (error) {
+                    console.error('Error:', error);
+                    showStatus('Failed to add todo', true);
+                }
+            }
+            
+            // Toggle completed status via the API
+            async function toggleComplete(id) {
+                try {
+                    const response = await fetch(`/api/todos/${id}`, {
+                        method: 'PUT'
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to update todo');
+                    }
+                    
+                    showStatus('Todo updated successfully');
+                    fetchTodos(); // Refresh the list
+                } catch (error) {
+                    console.error('Error:', error);
+                    showStatus('Failed to update todo', true);
+                }
+            }
+            
+            // Delete a todo via the API
+            async function deleteTodo(id) {
+                try {
+                    const response = await fetch(`/api/todos/${id}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to delete todo');
+                    }
+                    
+                    showStatus('Todo deleted successfully');
+                    fetchTodos(); // Refresh the list
+                } catch (error) {
+                    console.error('Error:', error);
+                    showStatus('Failed to delete todo', true);
+                }
+            }
+            
+            // --- STEP 3: RENDER FUNCTION ---
+            
+            // Render todos to the DOM
+            function renderTodos(todos) {
+                todoList.innerHTML = '';
+                
+                if (todos.length === 0) {
+                    emptyMessage.style.display = 'block';
+                } else {
+                    emptyMessage.style.display = 'none';
+                    
+                    todos.forEach(todo => {
+                        // Create list item
+                        const li = document.createElement('li');
+                        if (todo.completed) {
+                            li.classList.add('completed');
+                        }
+                        
+                        // Create text span
+                        const span = document.createElement('span');
+                        span.className = 'todo-text';
+                        span.textContent = todo.text;
+                        
+                        // Create delete button
+                        const deleteButton = document.createElement('button');
+                        deleteButton.className = 'delete-btn';
+                        deleteButton.textContent = 'Delete';
+                        
+                        // Add event listeners
+                        span.addEventListener('click', () => toggleComplete(todo.id));
+                        deleteButton.addEventListener('click', () => deleteTodo(todo.id));
+                        
+                        // Assemble the list item
+                        li.appendChild(span);
+                        li.appendChild(deleteButton);
+                        todoList.appendChild(li);
+                    });
+                }
+            }
+            
+            // --- STEP 4: EVENT LISTENERS ---
+            
+            // Add a new todo when the Add button is clicked
+            addButton.addEventListener('click', addTodo);
+            
+            // Add a new todo when Enter key is pressed in the input
+            todoInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    addTodo();
+                }
+            });
+            
+            // --- STEP 5: INITIALIZE ---
+            
+            // Load todos when the page loads
+            fetchTodos();
+        });
+    </script>
+</body>
+</html>
