@@ -1,0 +1,56 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250519193538
+Username: LAPTOP-D6V5M3RV\feroz
+RunAs User: LAPTOP-D6V5M3RV\feroz
+Configuration Name: 
+Machine: LAPTOP-D6V5M3RV (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 15752
+PSVersion: 5.1.19041.5848
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.5848
+BuildVersion: 10.0.19041.5848
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is feroz.txt
+PS C:\Users\feroz> New-Item -Path C:\Users\feroz -Name ‘QA-Training’ -ItemType Directory
+
+
+    Directory: C:\Users\feroz
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         5/19/2025   7:42 PM                QA-Training
+
+
+PS C:\Users\feroz> Set-Location C:\Users\feroz\QA-Training
+PS C:\Users\feroz\QA-Training> git --version
+git version 2.49.0.windows.1
+PS C:\Users\feroz\QA-Training> git clone https://github.com/sureshnanjan/protech-js-plw-cy.git
+Cloning into 'protech-js-plw-cy'...
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (5/5), 13.79 KiB | 2.30 MiB/s, done.
+PS C:\Users\feroz\QA-Training> Set-Location protech-js-plw-cy
+PS C:\Users\feroz\QA-Training\protech-js-plw-cy> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\feroz\QA-Training\protech-js-plw-cy> git checkout -b feroz-branch
+Switched to a new branch 'feroz-branch'
+PS C:\Users\feroz\QA-Training\protech-js-plw-cy> git status
+On branch feroz-branch
+nothing to commit, working tree clean
+PS C:\Users\feroz\QA-Training\protech-js-plw-cy> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20250519195111
+**********************
