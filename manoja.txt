@@ -1,0 +1,54 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250519200223
+Username: MANOJA\manuj
+RunAs User: MANOJA\manuj
+Configuration Name: 
+Machine: MANOJA (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 15668
+PSVersion: 5.1.26100.4061
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4061
+BuildVersion: 10.0.26100.4061
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is manoja.txt
+PS C:\Users\manuj\QA-Training> dir
+
+
+    Directory: C:\Users\manuj\QA-Training
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         5/19/2025   8:02 PM              0 manoja.txt
+
+
+PS C:\Users\manuj\QA-Training> git clone https://github.com/sureshnanjan/protech-js-plw-cy.git
+
+PS C:\Users\manuj\QA-Training> Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe -OutFile git-installer.exe
+PS C:\Users\manuj\QA-Training> .\git-installer.exe /VERYSILENT /NORESTART
+PS C:\Users\manuj\QA-Training> git --version
+
+PS C:\Users\manuj\QA-Training> git clone https://github.com/sureshnanjan/protech-js-plw-cy.git
+
+PS C:\Users\manuj\QA-Training> Set-Location protech-js-plw-cy
+PS C:\Users\manuj\QA-Training\protech-js-plw-cy> git status
+
+PS C:\Users\manuj\QA-Training\protech-js-plw-cy> git checkout -b manoja
+
+PS C:\Users\manuj\QA-Training\protech-js-plw-cy> git status
+
+PS C:\Users\manuj\QA-Training\protech-js-plw-cy> git checkout -b manoja-branch
+
+PS C:\Users\manuj\QA-Training\protech-js-plw-cy> git status
+
+PS C:\Users\manuj\QA-Training\protech-js-plw-cy> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20250519201827
+**********************
