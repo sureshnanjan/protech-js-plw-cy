@@ -65,6 +65,7 @@ executeSomething(greetSpanish);
 executeSomething(() => {
     console.log("Hello World");
 });
+executeSomething(sayHelloTamil);
 
 
 
