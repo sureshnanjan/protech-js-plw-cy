@@ -5,14 +5,19 @@
 console.log("===== PART 1: LIMITATIONS OF PRIMITIVE TYPES =====");
 
 // Primitive types in JavaScript
-const myString = "Hello World";
-const myNumber = 42;
+const myString = "Hello World"; // String
+const myNumber = 42; // Number 100, 100.2
 const myBoolean = true;
 const myUndefined = undefined;
 const myNull = null;
 // In ES6+: Symbol and BigInt are also primitive types
 
-console.log("Primitive types:", { myString, myNumber, myBoolean, myUndefined, myNull });
+
+const trainer = {name: "Suresh", age: 25, isAdmin: false};
+// Primitive types are immutable and cannot hold complex data
+var myObject = {};
+
+
 
 // Problem 1: Representing complex data with primitives
 console.log("\nProblem 1: Representing user data with primitives");
