@@ -5,14 +5,40 @@
 console.log("===== PART 1: LIMITATIONS OF PRIMITIVE TYPES =====");
 
 // Primitive types in JavaScript
-const myString = "Hello World";
-const myNumber = 42;
+const myString = "Hello World"; // String
+const myNumber = 42; // Number 100, 100.2
 const myBoolean = true;
 const myUndefined = undefined;
 const myNull = null;
+
 // In ES6+: Symbol and BigInt are also primitive types
 
-console.log("Primitive types:", { myString, myNumber, myBoolean, myUndefined, myNull });
+
+
+
+loopindex = loopindex + 1;
+loopindex += 1;
+
+const trainer = { 'first name': "Suresh", age: 25, isAdmin: false};
+
+const report = `I am ${trainer['first name']} and I am ${trainer.age} years old.`;
+
+report = "some string";
+
+// Object literal syntax
+// let , var , const
+
+// Accessing properties of an object
+trainer['age']; // "Suresh"
+trainer['first name']; // "Suresh" (using bracket notation)
+
+
+
+
+// Primitive types are immutable and cannot hold complex data
+var myObject = {};
+
+
 
 // Problem 1: Representing complex data with primitives
 console.log("\nProblem 1: Representing user data with primitives");
@@ -377,6 +403,7 @@ function userLeftListener(username) {
 chatEvents.on("message", messageListener);
 chatEvents.on("userJoined", userJoinedListener);
 chatEvents.on("userLeft", userLeftListener);
+
 
 // Only receive the next error message
 chatEvents.once("error", errorMsg => {
