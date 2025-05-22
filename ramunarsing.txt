@@ -1,0 +1,30 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250519210616
+Username: LAPTOP-MI6QG06J\narsi
+RunAs User: LAPTOP-MI6QG06J\narsi
+Configuration Name: 
+Machine: LAPTOP-MI6QG06J (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 14164
+PSVersion: 5.1.26100.4061
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4061
+BuildVersion: 10.0.26100.4061
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\narsi\ramunarsing.txt
+PS C:\Users\narsi> git clone https://github.com/sureshnanjan/protech-js-plw-cy.git
+fatal: destination path 'protech-js-plw-cy' already exists and is not an empty directory.
+PS C:\Users\narsi> Set-Location protech-js-plw-cy
+PS C:\Users\narsi\protech-js-plw-cy> git status
+On branch ramulocal-branch
+nothing to commit, working tree clean
+PS C:\Users\narsi\protech-js-plw-cy> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20250519211153
+**********************
