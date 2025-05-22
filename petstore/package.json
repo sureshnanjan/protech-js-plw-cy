@@ -11,5 +11,8 @@
     "automation"
   ],
   "author": "Suresh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "petstore": "file:"
+  }
 }
