@@ -1,0 +1,28 @@
+// Create .vscode/launch.json in your project folder
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Current File",
+            "program": "${file}", // This debugs whatever file is currently open
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug app.js",
+            "program": "${workspaceFolder}/app.js", // Debug specific file
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug utils.js",
+            "program": "${workspaceFolder}/utils/utils.js", // Debug file in subfolder
+            "console": "integratedTerminal"
+        }
+    ]
+}
