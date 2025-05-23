@@ -1,20 +1,25 @@
 
-const mynumbers = [1, 2, 3, 4, 5];
-mynumbers.forEach((number) => {
-    console.log(number)
+const createPromise = new Promise((resolve, reject) => {
+    const download = true; // Simulating a download condition
+    if (download) {
+        resolve({filename: "file.txt", size: "2MB"});
+    } else {
+        reject({error: "File not found"});
+    }
 });
 
-mynumbers.forEach((number) => {
-    number = number * 2
-    console.log(number)
-});
+const getResult = Promise.resolve({ name:"success"});
+const getError = Promise.reject({ name:"error"});
+async function doSomething() { 
+ getError.catch((error) => {
+    console.error("Promise rejected:", error); })
+ 
+    
 
-const doubled = mynumbers.map((number) => number * 2); 
-const tripled = mynumbers.map((number) => number * 3); 
+}
 
-console.log(doubled);
-console.log(mynumbers);
-console.log(tripled);
+    
+
 
 
 
