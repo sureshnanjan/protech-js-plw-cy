@@ -26,3 +26,23 @@ test_name.test_info();
 console.log(typeof(testName));
 console.log(typeof(test_name));
 // { key : value }
+
+// TODO: Create a testConfig object with the following properties:
+// - browser: "Chrome"
+// - viewport: { width: 1280, height: 720 }
+// - timeout: 30000 (30 seconds)
+console.log("\n=====TODO: Create a testConfig object with the following properties:=====");
+console.log("- browser: \"Chrome\"");
+console.log("- viewport: { width: 1280, height: 720 }");
+console.log("- timeout: 30000 (30 seconds)\n");
+
+const testConfig = {
+    browser: "Chrome",
+    viewport: {witdth: 1280, height: 720},
+    timeout: 3000
+}
+
+console.log("The follow config in the object:");
+console.log("Browser: ", testConfig.browser);
+console.log("Viewport: ", testConfig.viewport);
+console.log("Timeout: ", testConfig.timeout)
