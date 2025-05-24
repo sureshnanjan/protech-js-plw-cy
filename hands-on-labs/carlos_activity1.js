@@ -46,3 +46,28 @@ console.log("The follow config in the object:");
 console.log("Browser: ", testConfig.browser);
 console.log("Viewport: ", testConfig.viewport);
 console.log("Timeout: ", testConfig.timeout)
+
+// TODO: Access and log the browser property from the testConfig
+console.log("\n=====TODO: Access and log the browser property from the testConfig=====");
+console.log("Here is: ", testConfig.browser);
+
+// TODO: Update the timeout to 60000 (60 seconds)
+console.log("\n=====TODO: Update the timeout to 60000 (60 seconds)=====");
+console.log("Timeout before update: ", testConfig.timeout);
+testConfig.timeout = 6000;
+console.log("Timeout after update: ", testConfig.timeout);
+
+// TODO: Create a test summary string using template literals that includes:
+// - Test name
+// - Number of test cases
+// - Whether the test is automated
+// - Browser and viewport size
+// Expected output format: "Running [testName] with [numTestCases] test cases. Automated: [isAutomated]. Config: [browser] at [viewport.width]x[viewport.height]"
+console.log("\n=====TODO: Create a test summary string using template literals that includes:=====");
+console.log("- Test name");
+console.log("- Number of test cases");
+console.log("- Whether the test is automated");
+console.log("- Browser and viewport size");
+console.log("Expected output format: \"Running [testName] with [numTestCases] test cases. Automated: [isAutomated]. Config: [browser] at [viewport.width]x[viewport.height]\"\n");
+
+console.log(`Expected output format: \"Running ${test_name["Test name"]} with ${test_name["Number of test cases"]} test cases. Automated: ${test_name["Test is automated"]}. Config: ${testConfig.browser} at [${testConfig.viewport.witdth}]X[${testConfig.viewport.height}]\"`);
