@@ -81,6 +81,20 @@ function fetchUserOrders(userId) {
  * @returns {Promise} Promise resolving with test results
  */
 function testUserAPI(userId) {
+  return fetchUser(userId)
+    return fetchUser(userId)
+    .then(user => {
+      return fetchUserOrders(userId).then(orders => {
+        return {
+          user,
+          orders,
+          isPremium: user.isPremium,
+          hasOrders: orders.length>0
+        };
+      });
+    });
+  }
+
   // TODO: Implement the function
   // 1. Fetch the user by userId
   // 2. Then fetch the user's orders
@@ -90,7 +104,7 @@ function testUserAPI(userId) {
   //    - isPremium: Whether the user is a premium user
   //    - hasOrders: Whether the user has any orders
   // 4. If any step fails, the promise should reject with an error
-}
+
 
 /**
  * TODO: Implement this function to test multiple users simultaneously
@@ -98,12 +112,18 @@ function testUserAPI(userId) {
  * @returns {Promise} Promise resolving with all test results
  */
 function testMultipleUsers(userIds) {
+  const testPromises = userIds.map(id => testUserAPI(id));
+  return Promise.allSettled(testPromises).then(results =>
+    results.filter(r => r.status === "fulfilled")
+    .map(r=> r.value)
+  );
+}
   // TODO: Implement the function
   // 1. Test all users in parallel using Promise.all
   // 2. Return a promise that resolves with an array of test results
   // 3. If any test fails, the promise should still resolve with results
   //    for the successful tests (Hint: use Promise.allSettled)
-}
+
 
 // Don't modify the code below this line
 function runTests() {
